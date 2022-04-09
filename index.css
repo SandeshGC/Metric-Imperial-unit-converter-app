@@ -64,6 +64,7 @@ input {
     font: inherit;
     border-style: none;
     text-align: right;
+    transition: 0.6s;
 }
 .dark-mode{
     background-color: #1F2937;
