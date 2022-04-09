@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Unit Converter</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="index.css">
+</head>
 
-    <body>
-        <div id="upper-section">
-            <header><button id="chg-mode-btn" class="btn" onclick="chgColorMode()">Dark</button></header>
-            <h1>Metric/Imperial Unit Converter</h1>
-            <p id="value-to-convert"></p>
-            <input type="number" id="user-input-field" value="1" validate>
-            <button type="submit" onclick="calc()" class="btn" id="calc-btn">CALCULATE</button>
+<body id="body" class="light-mode">
+    <div id="upper-section">
+        <header><button id="chg-mode-btn" class="btn" onclick="chgColorMode()">Dark</button></header>
+        <h1>Metric/Imperial Unit Converter</h1>
+        <p id="value-to-convert"></p>
+        <input type="number" id="user-input-field" value="1" validate>
+        <button type="submit" onclick="calc()" class="btn" id="calc-btn">CALCULATE</button>
+    </div>
+    <div id="lower-section">
+        <div id="len-el">
+            Length (Meter/Feet)
+            <div id="len-conv" class="conv-text"></div>
         </div>
-        <div id="lower-section">
-            <div id="len-el">
-                Length (Meter/Feet)
-                <div id="len-conv" class="conv-text"></div>
-            </div>
-            <div id="vol-el">
-                Volume (Liters/Gallons)
-                <div id="vol-conv" class="conv-text"></div>
-            </div>
-            <div id="mass-el">
-                Mass (Kilograms/Pounds)
-                <div id="mass-conv" class="conv-text"></div>
-            </div>
+        <div id="vol-el">
+            Volume (Liters/Gallons)
+            <div id="vol-conv" class="conv-text"></div>
         </div>
-        <script src="index.js"></script>
-    </body>
+        <div id="mass-el">
+            Mass (Kilograms/Pounds)
+            <div id="mass-conv" class="conv-text"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
 
 </html>

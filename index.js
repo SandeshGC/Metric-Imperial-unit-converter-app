@@ -4,9 +4,8 @@ let num = userInputField.value;
 let convLen = document.getElementById("len-conv")
 let convVol = document.getElementById("vol-conv")
 let convMass = document.getElementById("mass-conv")
-
-calc();
-
+//start of conversion
+calc(); //initially converted
 function calc() {
     num = userInputField.value;
     convThis.textContent = num;
@@ -22,52 +21,33 @@ function calc() {
     let kgs = parseFloat((num * 0.453592).toFixed(3));
     let pounds = parseFloat((num * 2.20462).toFixed(3));
     convMass.textContent = `${num} kilos = ${pounds} pounds | ${num} pounds = ${kgs} kilos`
-}
+}//end of conversion
 //changing theme
+let body = document.getElementById("body")
 let chgModeBtn = document.getElementById("chg-mode-btn")
-let clickCount = 0; //no. of times the change mode button is clicked
-function chgColorMode() {
-    clickCount += 1; //starts with 1
-    if (clickCount % 2 === 0) //even no. of clicks change theme to light
-        chgToLight();
-    else if (chgModeBtn.innerText = "Light") //odd no. of clicks change theme to dark
-        chgToDark();
-}
-let body = document.getElementsByTagName("body")[0]
-let lowerSection = document.getElementById("lower-section");
-let calcBtn = document.getElementById("calc-btn")
+let calcBtn = document.getElementById("calc-btn")  //the calculate button
+function chgColorMode() { //changes color mode
+    if (body.classList.contains("light-mode")) { //changing to dark if light
+        body.classList.remove("light-mode")
+        body.classList.add("dark-mode")
+        calcBtn.classList.toggle("dark-mode");
+        chgModeBtn.classList.toggle("dark-mode")
+        userInputField.classList.toggle("dark-mode") //input box
+        convLen.style.color = "#D2D2D2";  //small texts in the page
+        convVol.style.color = "#D2D2D2";
+        convMass.style.color = "#D2D2D2";
+        chgModeBtn.textContent = "Dark"
 
-function chgToDark() {
-    chgModeBtn.textContent = "Light"
-    chgModeBtn.style.backgroundColor = "#1F2937"
-    chgModeBtn.style.color = "white"
-    body.style.backgroundColor = "#1F2937"
-    body.style.transition = "0.6s"
-    lowerSection.style.color = "white";
-    convLen.style.color = "#D2D2D2";
-    convVol.style.color = "#D2D2D2";
-    convMass.style.color = "#D2D2D2";
-    calcBtn.style.backgroundColor = "#1F2937"
-    calcBtn.style.color = "white"
-    userInputField.style.backgroundColor = "#1F2937"
-    userInputField.style.color = "white"
-
-
-    // console.log("changing color mode to Dark")
-}
-
-function chgToLight() {
-    chgModeBtn.textContent = "Dark"
-    chgModeBtn.style.backgroundColor = "white"
-    chgModeBtn.style.color = "black"
-    body.style.backgroundColor = "#FBF7EE"
-    body.style.transition = "0.6s"
-    lowerSection.style.color = "black"
-    convLen.style.color = "#4E4E4E";
-    convVol.style.color = "#4E4E4E";
-    convMass.style.color = "#4E4E4E";
-    userInputField.style.backgroundColor = "white"
-    userInputField.style.color = "#1F2937"
-
-    // console.log("changing color mode to Light")
-}
+    }
+    else { //changing to light because it's dark
+        body.classList.remove("dark-mode") //removes dark-mode class
+        body.classList.add("light-mode") //adds light-mode class
+        calcBtn.classList.toggle("dark-mode");
+        chgModeBtn.classList.toggle("dark-mode")
+        userInputField.classList.toggle("dark-mode")
+        convLen.style.color = "#4E4E4E";
+        convVol.style.color = "#4E4E4E";
+        convMass.style.color = "#4E4E4E";
+        chgModeBtn.textContent = "Light"
+    }
+}//end of changing theme
