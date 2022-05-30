@@ -1,11 +1,16 @@
-let convThis = document.getElementById("value-to-convert");
-let userInputField = document.getElementById("user-input-field")
+const convThis = document.getElementById("value-to-convert");
+const userInputField = document.getElementById("user-input-field")
 let num = userInputField.value;
-let convLen = document.getElementById("len-conv")
-let convVol = document.getElementById("vol-conv")
-let convMass = document.getElementById("mass-conv")
+const convLen = document.getElementById("len-conv")
+const convVol = document.getElementById("vol-conv")
+const convMass = document.getElementById("mass-conv")
+const body = document.getElementById("body");
+const chgModeBtn = document.getElementById("chg-mode-btn")
+const lowerSection = document.getElementById("lower-section");
+const calcBtn = document.getElementById("calc-btn")  //the calculate button
+
 //start of conversion
-calc(); //initially converted
+calc(); //initially convert while page loads
 function calc() {
     num = userInputField.value;
     convThis.textContent = num;
@@ -23,9 +28,13 @@ function calc() {
     convMass.textContent = `${num} kilos = ${pounds} pounds | ${num} pounds = ${kgs} kilos`
 }//end of conversion
 //changing theme
-let body = document.getElementById("body")
-let chgModeBtn = document.getElementById("chg-mode-btn")
-let calcBtn = document.getElementById("calc-btn")  //the calculate button
+function chgColorMode() {
+    clickCount += 1; //starts with 1
+    if (clickCount % 2 === 0) //even no. of clicks change theme to light
+        chgToLight();
+    else if (chgModeBtn.innerText = "Light") //odd no. of clicks change theme to dark
+        chgToDark();
+}
 function chgColorMode() { //changes color mode
     if (body.classList.contains("light-mode")) { //changing to dark if light
         body.classList.remove("light-mode")
@@ -37,7 +46,6 @@ function chgColorMode() { //changes color mode
         convVol.style.color = "#D2D2D2";
         convMass.style.color = "#D2D2D2";
         chgModeBtn.textContent = "Dark"
-
     }
     else { //changing to light because it's dark
         body.classList.remove("dark-mode") //removes dark-mode class
